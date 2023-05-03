@@ -1,1 +1,55 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Todo App</title>
+<style>
+  *{
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+    button {
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  h3{
+    border-radius: 10px;
+    border: 1px solid rgb(116, 116, 116);
+    margin: 10px 25px;
+    padding: 5px;
+  }
+  .container{
+    border-radius: 10px;
+    border: 1px solid rgb(116, 116, 116);
+    width: 300px;
+    height: 200px;
+  }
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Password</h1>
+    <button onclick="generatePassword(18)">Generate Password</button>
+    <h3 id="rp">-b.%*buw%s/B@vq7^+</h3>
+    </div>
+    <script>
+      function generatePassword(length) {
+        const charset =
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        let password = "";
+        for (let i = 0; i < length; i++) {
+          const index = Math.floor(Math.random() * charset.length);
+          password += charset[index];
+        }
+        console.log(password);
+        const pass = document.getElementById("rp");
+        pass.innerText = password;
+      }
+    </script>
+  </body>
+</html>
