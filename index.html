@@ -1,54 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Simple Todo App</title>
-<style>
-  *{
-    text-align: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-    button {
-    font-size: 16px;
-    padding: 8px 16px;
-    border-radius: 5px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-  }
-  h3{
-    border-radius: 10px;
-    border: 1px solid rgb(116, 116, 116);
-    margin: 10px 25px;
-    padding: 5px;
-  }
-  .container{
-    border-radius: 10px;
-    border: 1px solid rgb(116, 116, 116);
-    width: 300px;
-    height: 200px;
-  }
-</style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://png.pngtree.com/png-vector/20190511/ourmid/pngtree-vector-key-icon-png-image_1028662.jpg"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Fira Code", monospace;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        margin: 10px 0px;
+        padding: 10px 30px;
+        border-radius: 5px;
+        font-size: 20px;
+        background-color: #cee4cc;
+        border: 2px solid #53a04a;
+        color: #282c34;
+      }
+      input {
+        margin-top: 10px;
+        border: 2px solid #4a96ff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        background-color: #cce1ff;
+        width: 330px;
+        text-align: center;
+        font-size: 20px;
+      }
+      .row {
+        border: 2px solid #6a6a6a;
+        border-radius: 10px;
+        padding: 20px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
   </head>
+
   <body>
     <div class="container">
-      <h1>Password</h1>
-    <button onclick="generatePassword(18)">Generate Password</button>
-    <h3 id="rp">-b.%*buw%s/B@vq7^+</h3>
+      <div class="row">
+        <h1>Password Generator</h1>
+        <div>
+          <button onclick="genPassword()">Generate</button>
+          <button onclick="copyPassword()">CopyText</button>
+        </div>
+        <!-- <span id="newPassword">e#Hx2I1y4LgP*xMV6et</span> -->
+        <input type="text" id="password" />
+      </div>
     </div>
+
     <script>
-      function generatePassword(length) {
-        const charset =
-          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+      function genPassword() {
+        let chars =
+          "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+=_`~[]{}|\":;?><'ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let passwordLength = 18;
         let password = "";
-        for (let i = 0; i < length; i++) {
-          const index = Math.floor(Math.random() * charset.length);
-          password += charset[index];
+        for (let i = 0; i <= passwordLength; i++) {
+          let randomNumber = Math.floor(Math.random() * chars.length);
+          password += chars.substring(randomNumber, randomNumber + 1);
         }
-        console.log(password);
-        const pass = document.getElementById("rp");
-        pass.innerText = password;
+        // const newPassword = document.getElementById("newPassword");
+        // newPassword.innerText = password;
+        document.getElementById("password").value = password;
+      }
+      function copyPassword() {
+        const generatedPassword = document.getElementById("password");
+        generatedPassword.select();
+        generatedPassword.setSelectionRange(0, 99999);
+        const a = navigator.clipboard.writeText(generatedPassword.value);
+        console.log(a);
       }
     </script>
   </body>
