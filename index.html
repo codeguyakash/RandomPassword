@@ -54,6 +54,46 @@
         align-items: center;
         justify-content: center;
       }
+      @media (max-width: 600px) {
+        .container {
+          width: 100vw;
+          height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        button {
+          margin: 10px 0px;
+          padding: 5px 15px;
+          border-radius: 5px;
+          font-size: 16px;
+          background-color: #cee4cc;
+          border: 2px solid #53a04a;
+          color: #282c34;
+        }
+        input {
+          margin-top: 10px;
+          border: 2px solid #4a96ff;
+          border-radius: 5px;
+          padding: 5px 10px;
+          background-color: #cce1ff;
+          width: 230px;
+          text-align: center;
+          font-size: 16px;
+        }
+        h1 {
+          font-size: 24px;
+        }
+        .row {
+          border: 2px solid #6a6a6a;
+          border-radius: 10px;
+          padding: 20px 30px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     </style>
   </head>
 
@@ -66,7 +106,7 @@
           <button onclick="copyPassword()">CopyText</button>
         </div>
         <!-- <span id="newPassword">e#Hx2I1y4LgP*xMV6et</span> -->
-        <input type="text" id="password" value="[$6RQ&9$a?otD?0Twbs"/>
+        <input type="text" id="password" value="[$6RQ&9$a?otD?0Twbs" />
       </div>
     </div>
 
