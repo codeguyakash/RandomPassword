@@ -106,7 +106,7 @@
           <button onclick="copyPassword()">CopyText</button>
         </div>
         <!-- <span id="newPassword">e#Hx2I1y4LgP*xMV6et</span> -->
-        <input type="text" id="password" value="[$6RQ&9$a?otD?0Twbs" />
+        <input type="text" id="password" />
       </div>
     </div>
 
@@ -131,6 +131,9 @@
         const a = navigator.clipboard.writeText(generatedPassword.value);
         console.log(a);
       }
+      window.addEventListener("load", () => {
+        genPassword();
+      });
     </script>
   </body>
 </html>
