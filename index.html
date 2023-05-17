@@ -111,6 +111,42 @@
     </div>
 
     <script>
+
+function generatePassword() {
+    // Create an array of all possible characters for the password.
+    const characters = [
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      'abcdefghijklmnopqrstuvwxyz',
+      '0123456789',
+      '!@#$%^&*()-_+={}[]<>,.;?/'
+    ];
+  
+    // Create an empty array to store the password characters.
+    const password = [];
+  
+    // Loop through the characters array and add 4 uppercase, 4 lowercase, 4 special characters, and 4 numbers to the password array.
+    for (let i = 0; i < 4; i++) {
+      password.push(characters[0][Math.floor(Math.random() * characters[0].length)]);
+      password.push(characters[1][Math.floor(Math.random() * characters[1].length)]);
+      password.push(characters[2][Math.floor(Math.random() * characters[2].length)]);
+      password.push(characters[3][Math.floor(Math.random() * characters[3].length)]);
+    }
+  
+    // Shuffle the password characters.
+    password.sort(() => Math.random() - 0.5);
+  
+    // Return the password.
+    return password.join('');
+  }
+
+  
+  // const password = generatePassword();
+
+// console.log(password); // This will print a random 18 character password.
+
+
+
+
       function genPassword() {
         let chars =
           "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+=_`~[]{}|\":;?><'ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -132,7 +168,8 @@
         console.log(a);
       }
       window.addEventListener("load", () => {
-        genPassword();
+        // genPassword();
+        generatePassword();
       });
     </script>
   </body>
