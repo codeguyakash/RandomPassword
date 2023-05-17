@@ -136,6 +136,7 @@ function generatePassword() {
     password.sort(() => Math.random() - 0.5);
   
     // Return the password.
+    document.getElementById("password").value = password.join('');
     return password.join('');
   }
 
